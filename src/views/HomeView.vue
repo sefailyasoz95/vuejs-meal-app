@@ -33,7 +33,7 @@
 			v-if="randomMeals.length > 0"
 			class="flex flex-row items-center flex-nowrap gap-5 overflow-scroll p-5 border-2 border-orange-600 no-scrollbar rounded-xl"
 		>
-			<div v-for="randomMeal of randomMeals" v-bind:key="randomMeal?.idMeal">/></div>
+			<div v-for="randomMeal of randomMeals" v-bind:key="randomMeal?.idMeal"></div>
 		</div>
 		<div v-else class="flex flex-row items-center justify-center font-semibold">
 			<code> There is no category to show at the moment </code>
