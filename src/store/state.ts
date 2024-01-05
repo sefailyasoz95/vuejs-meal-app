@@ -5,4 +5,5 @@ export default {
 	errorMessage: "",
 	categories: [] as Category[],
 	mealsByCategory: [] as Meal[],
+	randomMeals: [] as Meal[],
 };

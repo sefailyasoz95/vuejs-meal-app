@@ -1,4 +1,5 @@
 import axiosClient from "@/axiosClient";
+import { Meal } from "@/types";
 
 async function searchMeals({ commit }: any, keyword: string) {
 	try {
@@ -33,9 +34,26 @@ async function getMealById({ commit }: any, id: string) {
 		commit("setErrorMessage", "Cannot fetch meals!!");
 	}
 }
+
+async function getRandomMeals({ commit }: any) {
+	let meals = [] as Meal[];
+	try {
+		const response1 = await axiosClient.get(`random.php`);
+		const response2 = await axiosClient.get(`random.php`);
+		const response3 = await axiosClient.get(`random.php`);
+		meals.push(response1.data.meals[0]);
+		meals.push(response2.data.meals[0]);
+		meals.push(response3.data.meals[0]);
+		commit("setState", { key: "randomMeals", value: meals });
+	} catch (error) {
+		commit("setErrorMessage", "Cannot fetch meals!!");
+	}
+}
+
 export default {
 	searchMeals,
 	getCategories,
 	getMealsByCategory,
 	getMealById,
+	getRandomMeals,
 };

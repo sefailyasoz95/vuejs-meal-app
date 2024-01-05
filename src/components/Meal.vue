@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col rounded-xl drop-shadow-lg bg-white text-center justify-between">
+	<div class="flex flex-col rounded-xl drop-shadow-lg bg-white text-center justify-between max-w-[400px]">
 		<img :src="meal?.strMealThumb" :alt="meal?.strMeal" class="rounded-t-xl h-64 w-full object-cover" />
 		<h3 class="font-bold text-2xl">
 			{{ meal?.strMeal }}
@@ -27,6 +27,7 @@ const props = defineProps({
 		type: Object as PropType<Meal>,
 		required: true,
 	},
+	onViewDetails: Function,
 });
 const emit = defineEmits(["onViewDetails"]);
 const onViewDetails = () => emit("onViewDetails", props.meal);
